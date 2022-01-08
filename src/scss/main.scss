@@ -7,12 +7,13 @@
 
 @import "components/buttons";
 @import "components/search-input";
-@import "components/pokemon-card";
+@import "components/pokemonCard";
 
 @import "layout/header";
+@import "layout/grid";
 
-@import "pages/home";
-@import "pages/pokemon-details";
+@import "pages/pokemonList";
+@import "pages/pokemonDetails";
 
 
 
