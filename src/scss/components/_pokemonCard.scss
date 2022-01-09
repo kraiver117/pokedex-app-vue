@@ -7,8 +7,16 @@
     cursor: pointer;
     padding: 1.5rem;
     color: #fff;
+    text-transform: capitalize;
+    box-shadow: 1rem 1.5rem 3rem rgba(0,0,0,.2), 0 1rem 1rem rgba(0,0,0,.2);
+    transition: all 12s ease-in;
+
+    &:hover &__img{
+        transform: scale(1.2);
+    }
 
     &__img{
+        transition: all 0.4s;
         width: 12rem;
         height: 12rem;
     }

@@ -5,7 +5,8 @@
         v-if="pokemonInfo !== null" 
         @click="pokemonDetails()" 
         :style="{
-            backgroundColor: colorType(pokemonInfo.types[0].type.name)
+            backgroundColor: colorType(pokemonInfo.types[0].type.name),
+            opacity: 0.9
         }"
     >
         <h5 class="pokemon-card__name">#{{pokemonInfo.id}}{{' '}}{{pokemonInfo.name}}</h5>
