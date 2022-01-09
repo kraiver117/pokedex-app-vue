@@ -1,3 +1,9 @@
 .pokemon-list{
+    height: 100vh;
 
+    &__img{
+        @include centerFloatElementXY;
+        z-index: 1;
+        opacity: 0.2;
+    }
 }

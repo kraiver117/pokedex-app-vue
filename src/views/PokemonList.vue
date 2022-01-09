@@ -1,8 +1,9 @@
 <template>
     <div id="pokemon-list" class="pokemon-list">
+        <img class="pokemon-list__img" :src="require(`@/assets/images/pokeball.png`)" alt="pokeball">
         <h1 class="u-text-center">Pokemon List</h1>
         <div class="row">
-            <div class="col-1-of-4" v-for="(pokemon, index) in data" v-bind:key="index">
+            <div class="col-1-of-4" v-for="(pokemon, index) in pokemons" v-bind:key="index">
                 <PokemonCard :pokemon="pokemon" :index="index" /> 
             </div>
         </div>
@@ -20,12 +21,12 @@ export default {
     },
     data() {
         return {
-            data: []
+            pokemons: []
         }
     },
     mounted() {
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=20').then(response => {
-            this.data = response.data.results;
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=4').then(response => {
+            this.pokemons = response.data.results;
         })
     }
 }
