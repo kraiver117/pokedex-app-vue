@@ -61,6 +61,7 @@ export default {
         }
     },
     mounted() {
+        window.scrollTo(0, 0);
         this.data = this.$route.params.data;
         this.pokemonInfo = this.$route.params.pokemonInfo;
     }

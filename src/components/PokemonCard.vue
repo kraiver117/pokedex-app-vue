@@ -5,9 +5,11 @@
         v-if="pokemonInfo !== null" 
         @click="pokemonDetails()" 
         :style="{
-            backgroundColor: colorType(pokemonInfo.types[0].type.name)
+            backgroundColor: colorType(pokemonInfo.types[0].type.name),
+            opacity: 0.9
         }"
     >
+        <img class="pokemon-card__pokeball" :src="require(`@/assets/images/pokeball-white.png`)" alt="pokeball-white">
         <h5 class="pokemon-card__name">#{{pokemonInfo.id}}{{' '}}{{pokemonInfo.name}}</h5>
         <img 
             id="pokemon-img" 
@@ -51,6 +53,9 @@ export default {
                 case 'normal': 
                     this.pokemonInfo.colorDominant = '#f7786b';
                     return '#f7786b';
+                case 'electric':
+                    this.pokemonInfo.colorDominant = '#e6d51c';
+                    return '#e6d51c'
             }
             
         }
