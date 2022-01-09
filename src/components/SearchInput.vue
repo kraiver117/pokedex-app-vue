@@ -1,6 +1,8 @@
 <template>
-    <div id="search-input">
-        <h1>Search Input</h1>
+    <div id="search-input" class="search-input">
+        <form action="">
+            <input type="text" placeholder="Buscar Pokémon">
+        </form>
     </div>
 </template>
 
