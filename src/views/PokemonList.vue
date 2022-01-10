@@ -1,12 +1,16 @@
 <template>
     <div id="pokemon-list" class="pokemon-list">
+        <Header :pokemons="pokemons" />
         <img class="pokemon-list__img" :src="require(`@/assets/images/pokeball.png`)" alt="pokeball">
-        <h1 class="u-text-center u-margin-top-md u-margin-bottom-sm">Pokedex</h1>
-        <div class="pokemon-list__cards-container">
-                <PokemonCard v-for="(pokemon, index) in pokemons" v-bind:key="index" :pokemon="pokemon" :index="index" /> 
+        <div style="display:flex; margin: 0 80rem; margin-bottom: 2rem; margin-top:5rem">
+            <input class="pokemon-list__search-input" type="text" v-model="search" placeholder="Search Pokemon">
         </div>
-        <div id="scroll-trigger" ref="infiniteScrollTrigger">
-            <font-awesome-icon icon="spinner" />
+        <div class="pokemon-list__cards-container">
+            <PokemonCard v-for="pokemon in filteredPokemons" v-bind:key="pokemon.name" :pokemon="pokemon" /> 
+        </div>
+        <h3 class="u-text-center" v-if="filteredPokemons.length === 0">"No results were found with {{this.search}}"</h3>
+        <div id="scroll-trigger" ref="infiniteScrollTrigger" v-show="filteredPokemons.length === pokemons.length">
+            <Spinner color="#ef5350" :scale=0.5 />
         </div>
     </div>
 </template>
@@ -14,25 +18,41 @@
 <script>
 import axios from 'axios'
 import PokemonCard from '../components/PokemonCard.vue'
+import Header from '../components/layout/Header.vue'
+import Spinner from '../components/Spinner.vue'
 
 export default {
     name: 'PokemonList',
     components: {
-        PokemonCard
+        PokemonCard,
+        Header,
+        Spinner
     },
     data() {
         return {
             pokemons: [],
+            allPokemons: [],
             nextUrl: '',
-            currentUrl: ''
+            currentUrl: '',
+            filterUrl: '',
+            search: ''
         }
     },
     methods: {
-        fetchData(){
-            axios.get(this.currentUrl)
+        fetchData(url){
+            axios.get(url)
                 .then((response) => {
                     this.nextUrl = response.data.next;
                     this.pokemons = this.pokemons.concat(response.data.results);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        },
+        fetchAllPokemons(url){
+            axios.get(url)
+                .then((response) => {
+                    this.allPokemons = response.data.results;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -43,7 +63,7 @@ export default {
                 entries.forEach((entry) =>{
                     if (entry.intersectionRatio > 0 && this.nextUrl) {
                         this.currentUrl = this.nextUrl;
-                        this.fetchData();
+                        this.fetchData(this.currentUrl);
                     }
                 })
             })
@@ -51,9 +71,20 @@ export default {
             observer.observe(this.$refs.infiniteScrollTrigger);
         }
     },
+    computed: {
+        filteredPokemons(){
+            if(this.search !== ''){
+                return this.allPokemons.filter(pokemon => pokemon.name.toLowerCase().includes(this.search.toLowerCase()));
+            } else {
+                return this.pokemons;
+            }
+        }
+    },
     created() {
-        this.currentUrl = 'https://pokeapi.co/api/v2/pokemon/';
-        this.fetchData();
+        this.filterUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=1200';
+        this.currentUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=16';
+        this.fetchAllPokemons(this.filterUrl);
+        this.fetchData(this.currentUrl);
     },
     mounted() {
         this.scrollTrigger();
