@@ -4,7 +4,7 @@
         class="pokemon-card" 
         @click="pokemonDetails()" 
         :style="{
-            backgroundColor: colorType(pokemonInfo.types[0].type.name),
+            backgroundColor: getColorType(pokemonInfo.types[0].type.name),
             opacity: 0.9
         }"
         v-if="pokemonInfo.types.length > 0"
@@ -31,6 +31,7 @@
 <script>
 import axios from 'axios'
 import Spinner from '../components/Spinner.vue'
+import { getColorType } from '../utils/colorType';
 
 export default {
     name: 'PokemonCard',
@@ -44,28 +45,10 @@ export default {
         pokemonDetails() {
             this.$router.push({ name: 'PokemonDetails', params: { data: this.data, pokemonInfo: this.pokemonInfo }})
         },
-        colorType(type) {
-            switch(type){
-                case 'grass':
-                    this.pokemonInfo.colorDominant = '#48d0b1';
-                    return '#48d0b1';
-                case 'fire': 
-                    this.pokemonInfo.colorDominant = '#fb6c6c';
-                    return '#fb6c6c';
-                case 'water': 
-                    this.pokemonInfo.colorDominant = '#76bdfe';
-                    return '#76bdfe';
-                case 'bug': 
-                    this.pokemonInfo.colorDominant = '#f7786b';
-                    return '#f7786b';
-                case 'normal': 
-                    this.pokemonInfo.colorDominant = '#f7786b';
-                    return '#f7786b';
-                case 'electric':
-                    this.pokemonInfo.colorDominant = '#e6d51c';
-                    return '#e6d51c'
-            }
-            
+        getColorType(type) {
+            const color = getColorType(type);
+            this.pokemonInfo.colorDominant = color;
+            return color;
         },
         onImgLoad() {
             this.isLoaded = true;
