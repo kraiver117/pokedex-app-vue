@@ -46,7 +46,7 @@
             </div>
             <div class="pokemon-details__sprites">
                 <h3 class="u-text-center" :style="{color: pokemonInfo.colorDominant}">Sprites</h3>
-                <div style="display:flex; justify-content:space-evenly">
+                <div style="display:flex; justify-content:space-evenly; flex-wrap: wrap;">
                     <img :src="data.sprites.front_default" alt="front default">
                     <img :src="data.sprites.back_default" alt="back default">
                     <img :src="data.sprites.front_shiny" alt="front shiny">
