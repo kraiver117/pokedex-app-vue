@@ -7,9 +7,12 @@
     font-size: 1.7rem;
     text-transform: capitalize;
 
+    @include respond(phone) {
+        width: 100%;
+    }
+
     &__info-container {
-        border-top-left-radius: 2rem;
-        border-top-right-radius: 2rem;
+        margin-top: 37rem;
     }
 
     &__img-background {
@@ -20,7 +23,8 @@
     }
 
     &__header {
-        position: relative;
+        position: fixed;
+        top: 0;
         color: #fff;
         text-align: center;
         width: 60rem;
@@ -28,6 +32,10 @@
         z-index: 1000;
         border-bottom-right-radius: 100rem;
         border-bottom-left-radius: 100rem;
+
+        @include respond(phone) {
+            width: 100%;
+        }
 
         &-arrow-back {
             position: absolute;
@@ -67,14 +75,28 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 1rem;
         text-align: center;
+
+        @include respond(phone) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
     }
 
     &__stats {
         margin: 0 20rem;
+        @include respond(phone) {
+            margin: 0 12rem;
+        }
     }
 
     &__moves {
         width: 60rem;
         margin: 0 2rem;
+        
+        @include respond(phone) {
+            width: 100%;
+            margin: 0;
+        }
     }
 }

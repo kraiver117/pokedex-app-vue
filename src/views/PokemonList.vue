@@ -2,8 +2,8 @@
     <div id="pokemon-list" class="pokemon-list">
         <Header :pokemons="pokemons" />
         <img class="pokemon-list__img" :src="require(`@/assets/images/pokeball.png`)" alt="pokeball">
-        <div style="display:flex; margin: 0 80rem; margin-bottom: 2rem; margin-top:5rem">
-            <input class="pokemon-list__search-input" type="text" v-model="search" placeholder="Search Pokemon">
+        <div class="pokemon-list__search-input">
+            <input class="pokemon-list__search-input-el" type="text" v-model="search" placeholder="Search Pokemon">
         </div>
         <div class="pokemon-list__cards-container">
             <PokemonCard v-for="pokemon in filteredPokemons" v-bind:key="pokemon.name" :pokemon="pokemon" /> 
