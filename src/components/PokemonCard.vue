@@ -19,7 +19,7 @@
                 :alt="pokemonInfo.name"
                 @load="onImgLoad"
             />
-            <Spinner v-if="!isLoaded" color="white" :scale="0.5" />
+            <Spinner v-if="!isLoaded" color="white" :scale="0.4" />
             <p>Attack - {{pokemonInfo.attack}}</p>
             <h5>Types</h5>
             <span class="pokemon-card__types pill pill--white u-margin-right-xs" v-for="{type} in pokemonInfo.types" v-bind:key="type.name">
