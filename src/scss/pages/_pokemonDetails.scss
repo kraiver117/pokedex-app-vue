@@ -16,9 +16,9 @@
     }
 
     &__img-background {
+        @include centerFloatElementXY;
         width: 30rem;
         height: 30rem;
-        @include centerFloatElementXY;
         opacity: 0.1;
     }
 
@@ -71,22 +71,17 @@
     }
 
     &__general-info {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 1rem;
+        display: flex;
+        justify-content: space-around;
         text-align: center;
 
-        @include respond(phone) {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
     }
 
     &__stats {
-        margin: 0 20rem;
+        margin: 0 5rem;
         @include respond(phone) {
-            margin: 0 12rem;
+            width: 100%;
+            margin: 0 1rem;
         }
     }
 
@@ -98,5 +93,11 @@
             width: 100%;
             margin: 0;
         }
+    }
+
+    &__sprites-images {
+        display:flex; 
+        justify-content:space-evenly; 
+        flex-wrap: wrap;
     }
 }

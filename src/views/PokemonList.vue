@@ -1,9 +1,19 @@
 <template>
     <div id="pokemon-list" class="pokemon-list">
-        <Header :pokemons="pokemons" />
-        <img class="pokemon-list__img" :src="require(`@/assets/images/pokeball.png`)" alt="pokeball">
+        <img 
+            class="pokemon-list__img" 
+            :src="require(`@/assets/images/pokeball.png`)" 
+            alt="pokeball"
+        >
+        <img 
+            class="pokemon-list__logo u-text-center" 
+            src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" 
+            alt="pokemon logo" 
+            width="200"  
+            height="80" 
+        />
         <div class="pokemon-list__search-input">
-            <input class="pokemon-list__search-input-el" type="text" v-model="search" placeholder="Search Pokemon">
+            <input class="pokemon-list__search-input-el" type="text" v-model="search" placeholder="Search about a pokemon using name">
         </div>
         <div class="pokemon-list__cards-container">
             <PokemonCard v-for="pokemon in filteredPokemons" v-bind:key="pokemon.name" :pokemon="pokemon" /> 
@@ -18,14 +28,12 @@
 <script>
 import axios from 'axios'
 import PokemonCard from '../components/PokemonCard.vue'
-import Header from '../components/layout/Header.vue'
 import Spinner from '../components/Spinner.vue'
 
 export default {
     name: 'PokemonList',
     components: {
         PokemonCard,
-        Header,
         Spinner
     },
     data() {

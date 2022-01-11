@@ -1,5 +1,12 @@
 .pokemon-list{
-    height: 100vh;
+    height: 100%;
+    &__logo{
+        width: 100%;
+        position: relative;
+        left: 50%;
+        top: 2rem;
+        transform: translate(-50%);
+    }
 
     &__cards-container{
         display: grid;

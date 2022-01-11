@@ -2,12 +2,12 @@
     <div 
         id="pokemon-card" 
         class="pokemon-card" 
-        @click="pokemonDetails()" 
         :style="{
             backgroundColor: getColorType(pokemonInfo.types[0].type.name),
             opacity: 0.9
         }"
         v-if="pokemonInfo.types.length > 0"
+        @click="pokemonDetails()" 
     >
             <img class="pokemon-card__pokeball" :src="require(`@/assets/images/pokeball-white.png`)" alt="pokeball-white">
             <h5 class="pokemon-card__name">#{{pokemonInfo.id}}{{' '}}{{pokemonInfo.name}}</h5>
