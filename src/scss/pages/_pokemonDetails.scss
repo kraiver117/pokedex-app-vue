@@ -16,9 +16,9 @@
     }
 
     &__img-background {
+        @include centerFloatElementXY;
         width: 30rem;
         height: 30rem;
-        @include centerFloatElementXY;
         opacity: 0.1;
     }
 
