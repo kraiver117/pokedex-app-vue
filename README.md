@@ -26,7 +26,7 @@ Pokedex Project made in Vue.js
 - Sass
 
 ### UI Examples:
-#### Pokemon List
+### Pokemon List
 ![](https://i.ibb.co/YBMgmgZ/Pokedex-UI-1.png)
 
 ### Pokemon Details
