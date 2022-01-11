@@ -12,7 +12,7 @@
     box-shadow: 1rem 1.5rem 3rem rgba(0,0,0,.2), 0 1rem 1rem rgba(0,0,0,.2);
 
     @include respond(phone) {
-        height: 25rem;
+        height: 27rem;
     }
 
     &:hover &__img {
