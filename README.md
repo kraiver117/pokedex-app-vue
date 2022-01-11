@@ -5,7 +5,7 @@ Pokedex Project made in Vue.js
 API Used: https://pokeapi.co/
 Demo live: https://pokedex-app-kraiver.netlify.app/
 
-###The Pokedex includes all Pokemons with:
+### The Pokedex includes all Pokemons with:
 
 - Descriptions and types
 - Base statistics
@@ -13,7 +13,7 @@ Demo live: https://pokedex-app-kraiver.netlify.app/
 - Sprites
 - Moves
 
-###Functionalities:
+### Functionalities:
 
 - Pokemons List
 - Pokemon Details
@@ -21,20 +21,20 @@ Demo live: https://pokedex-app-kraiver.netlify.app/
 - Infinity Scroll
 - Responsive for phones and iPad
 
-###Technologies used:
+### Technologies used:
 - Vue.js
 - Sass
 
 ### UI Examples:
-####Pokemon List
+#### Pokemon List
 ![](https://i.ibb.co/YBMgmgZ/Pokedex-UI-1.png)
 
-###Pokemon Details
+### Pokemon Details
 ![](https://i.ibb.co/Z27GVNg/Pokedex-UI-3.png)
 
 ![](https://i.ibb.co/4T0prrr/Pokedex-UI-4.png)
 
-###Pokemon Search
+### Pokemon Search
 ![]()![](https://i.ibb.co/SdVX0M0/Pokedex-UI-2.png)
 
 ## Project setup
