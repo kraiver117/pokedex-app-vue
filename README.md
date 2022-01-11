@@ -2,8 +2,8 @@
 
 Pokedex Project made in Vue.js
 
-API Used: https://pokeapi.co/
-Demo live: https://pokedex-app-kraiver.netlify.app/
+- API Used: https://pokeapi.co/
+- Demo live: https://pokedex-app-kraiver.netlify.app/
 
 ### The Pokedex includes all Pokemons with:
 
