@@ -94,4 +94,10 @@
             margin: 0;
         }
     }
+
+    &__sprites-images {
+        display:flex; 
+        justify-content:space-evenly; 
+        flex-wrap: wrap;
+    }
 }

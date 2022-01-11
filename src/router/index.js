@@ -11,7 +11,7 @@ const routes = [
     component: PokemonList
   },
   {
-    path: '/pokemon/:id',
+    path: '/pokemon',
     name: 'PokemonDetails',
     component: () => import(/* webpackChunkName: "pokemonDetails" */ '../views/PokemonDetails.vue')
   }

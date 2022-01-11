@@ -72,13 +72,13 @@
                     {{move.name}}
                 </span>
             </div>
-            <div class="pokemon-details__sprites">
+            <div class="pokemon-details__sprites" v-if="data.sprites">
                 <h3 class="u-text-center" :style="{color: pokemonInfo.colorDominant}">Sprites</h3>
-                <div style="display:flex; justify-content:space-evenly; flex-wrap: wrap;">
-                    <img :src="data.sprites.front_default" alt="front default">
-                    <img :src="data.sprites.back_default" alt="back default">
-                    <img :src="data.sprites.front_shiny" alt="front shiny">
-                    <img :src="data.sprites.back_shiny" alt="back shiny">
+                <div class="pokemon-details__sprites-images">
+                    <img v-show="data.sprites.front_default" :src="data.sprites.front_default" alt="front default">
+                    <img v-show="data.sprites.back_default" :src="data.sprites.back_default" alt="back default">
+                    <img v-show="data.sprites.front_shiny" :src="data.sprites.front_shiny" alt="front shiny">
+                    <img v-show="data.sprites.back_shiny" :src="data.sprites.back_shiny" alt="back shiny">
                 </div>
             </div>
         </div>
